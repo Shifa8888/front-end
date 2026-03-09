@@ -1,0 +1,373 @@
+/* Withdraw Funds styles */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dashboard-card {
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.7), rgba(2, 6, 23, 0.8));
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  border-radius: 20px;
+  padding: 30px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dashboard-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #06b6d4, #8b5cf6, #f59e0b);
+  animation: shimmer 2s infinite;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  border-color: rgba(6, 182, 212, 0.4);
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Payment Method Cards */
+.payment-card {
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.6), rgba(15, 23, 42, 0.6));
+  border: 2px solid transparent;
+  border-radius: 16px;
+  padding: 20px 24px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.payment-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(6, 182, 212, 0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.payment-card:hover {
+  border-color: #06b6d4;
+  background: linear-gradient(145deg, rgba(6, 182, 212, 0.1), rgba(139, 92, 246, 0.1));
+  transform: translateX(10px);
+  box-shadow: 0 8px 25px rgba(6, 182, 212, 0.3);
+}
+
+.payment-card:hover::before {
+  transform: translateX(100%);
+}
+
+.payment-card.active {
+  border-color: #06b6d4;
+  background: linear-gradient(145deg, rgba(6, 182, 212, 0.2), rgba(139, 92, 246, 0.2));
+  box-shadow: 0 10px 30px rgba(6, 182, 212, 0.4);
+  transform: translateX(10px);
+}
+
+.payment-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 18px;
+  font-size: 26px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.payment-card:hover .payment-icon {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.bg-crypto {
+  background: linear-gradient(135deg, #f7931a 0%, #e67e00 100%);
+  box-shadow: 0 4px 15px rgba(247, 147, 26, 0.4);
+}
+
+.bg-bank {
+  background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+  box-shadow: 0 4px 15px rgba(0, 102, 204, 0.4);
+}
+
+/* Input */
+.amount-input {
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.7));
+  border: 2px solid rgba(6, 182, 212, 0.3);
+  border-radius: 16px;
+  padding: 18px 24px;
+  color: #fff;
+  width: 100%;
+  font-size: 17px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.amount-input:focus {
+  outline: none;
+  border-color: #06b6d4;
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.9));
+  box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.2), inset 0 2px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.amount-input::placeholder {
+  color: #94a3b8;
+}
+
+/* Button */
+.btn-withdraw {
+  background: linear-gradient(90deg, #06b6d4, #8b5cf6) !important;
+  border: none;
+  color: #fff;
+  padding: 18px 36px;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 17px;
+  width: 100%;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.5px;
+  box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4);
+}
+
+.btn-withdraw::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s;
+}
+
+.btn-withdraw:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(6, 182, 212, 0.6);
+  color: #fff;
+}
+
+.btn-withdraw:hover::before {
+  left: 100%;
+}
+
+.btn-withdraw:active {
+  transform: translateY(-2px);
+}
+
+/* Instructions */
+.instruction-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.instruction-list li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 20px;
+  color: #cbd5e1;
+  font-size: 15px;
+  line-height: 1.7;
+  transition: all 0.3s ease;
+}
+
+.instruction-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.2);
+}
+
+.instruction-list li:hover {
+  color: #fff;
+  transform: translateX(5px);
+}
+
+.instruction-list li:hover::before {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 6px rgba(6, 182, 212, 0.3);
+}
+
+.instruction-list li strong {
+  color: #fff;
+  font-weight: 700;
+  background: linear-gradient(90deg, #06b6d4, #f59e0b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.filter-dropdown {
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.7));
+  border: 2px solid rgba(6, 182, 212, 0.3);
+  border-radius: 12px;
+  padding: 12px 20px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.filter-dropdown:hover {
+  border-color: #06b6d4;
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.9));
+  box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.1);
+}
+
+.filter-dropdown:focus {
+  outline: none;
+  border-color: #06b6d4;
+  box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.2);
+}
+
+.filter-dropdown option {
+  background-color: #1e293b;
+  color: #ffffff;
+  padding: 10px;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.text-gray {
+  color: #94a3b8;
+}
+
+.text-success {
+  color: #10b981;
+}
+
+.text-warning {
+  color: #f59e0b;
+}
+
+.text-danger {
+  color: #ef4444;
+}
+
+/* Mobile responsive layout */
+@media (max-width: 991.98px) {
+  .withdraw-sections-row {
+    display: flex;
+    flex-direction: column;
+  }
+  .withdraw-instructions-col { order: 1; }
+  .withdraw-form-col { order: 2; }
+  .withdraw-history-col { order: 3; }
+}
+
+@media (min-width: 992px) {
+  .withdraw-sections-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 1.5rem;
+  }
+  .withdraw-instructions-col { grid-column: 1; grid-row: 1; }
+  .withdraw-form-col { grid-column: 2; grid-row: 1 / -1; }
+  .withdraw-history-col { grid-column: 1; grid-row: 2; }
+}
+
+@media (max-width: 767.98px) {
+  .dashboard-card {
+    padding: 18px;
+  }
+  
+  .payment-card {
+    padding: 14px 16px;
+  }
+  
+  .payment-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    margin-right: 12px;
+  }
+  
+  .amount-input {
+    padding: 14px 18px;
+    font-size: 15px;
+  }
+  
+  .btn-withdraw {
+    padding: 16px 32px;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .dashboard-card {
+    padding: 16px;
+  }
+  
+  .payment-card {
+    padding: 12px 14px;
+  }
+  
+  .payment-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+    margin-right: 10px;
+  }
+  
+  .amount-input {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+  
+.btn-withdraw {
+  padding: 16px 8px;       /* keep top/bottom padding, reduce left/right */
+  font-size: 16px;
+  margin-bottom: 25px;
+  width: 160px;             /* sets fixed smaller width */
+  max-width: 100%;          /* prevents overflow on small screens */
+  box-sizing: border-box;   /* includes padding in width */
+}
+  .instruction-list li {
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+  
+  .filter-dropdown {
+    width: 100%;
+  }
+}

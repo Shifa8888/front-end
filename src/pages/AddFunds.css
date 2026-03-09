@@ -1,0 +1,329 @@
+/* Add Funds styles */
+.dashboard-card {
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.85) 0%, rgba(15, 23, 42, 0.95) 100%);
+  border: 1px solid rgba(14, 165, 233, 0.25);
+  border-radius: 20px;
+  padding: 28px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.dashboard-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent), var(--gold));
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.payment-card {
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
+  border: 2px solid rgba(14, 165, 233, 0.2);
+  border-radius: 16px;
+  padding: 20px 24px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.payment-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.payment-card:hover,
+.payment-card.active {
+  border-color: var(--primary);
+  background: linear-gradient(145deg, rgba(14, 165, 233, 0.2) 0%, rgba(139, 92, 246, 0.1) 100%);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(14, 165, 233, 0.3);
+}
+
+.payment-card:hover::before,
+.payment-card.active::before {
+  transform: translateX(100%);
+}
+
+.payment-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 18px;
+  font-size: 26px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 2;
+}
+
+.bg-crypto { 
+  background: linear-gradient(135deg, #f7931a 0%, #e67e00 100%); 
+  box-shadow: 0 5px 20px rgba(247, 147, 26, 0.4);
+}
+
+.bg-bank { 
+  background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%); 
+  box-shadow: 0 5px 20px rgba(0, 102, 204, 0.4);
+}
+
+.amount-input {
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
+  border: 2px solid rgba(14, 165, 233, 0.3);
+  border-radius: 16px;
+  padding: 18px 24px;
+  color: #fff;
+  width: 100%;
+  font-size: 18px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.amount-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: linear-gradient(145deg, rgba(14, 165, 233, 0.2) 0%, rgba(139, 92, 246, 0.1) 100%);
+  box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.2);
+}
+
+.amount-input::placeholder {
+  color: #94a3b8;
+}
+
+.file-input {
+  padding: 12px 14px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.file-input::file-selector-button {
+  background: linear-gradient(90deg, #7e22ce 0%, #0ea5e9 100%);
+  border: 0;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-right: 12px;
+  box-shadow: 0 5px 15px rgba(126, 34, 206, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.file-input::-webkit-file-upload-button {
+  background: linear-gradient(90deg, #7e22ce 0%, #0ea5e9 100%);
+  border: 0;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-right: 12px;
+  box-shadow: 0 5px 15px rgba(126, 34, 206, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.file-input:hover::file-selector-button,
+.file-input:hover::-webkit-file-upload-button {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(14, 165, 233, 0.28);
+  filter: brightness(1.05);
+}
+
+.btn-deposit {
+  background: linear-gradient(90deg, #7e22ce 0%, #0ea5e9 100%) !important;  
+  border: none;
+  color: #fff;
+  padding: 18px 36px;
+  border-radius: 16px;
+  font-weight: 700;
+  width: 100%;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  font-size: 16px;
+  box-shadow: 0 5px 20px rgba(126, 34, 206, 0.4);
+}
+
+.btn-deposit::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.btn-deposit:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(126, 34, 206, 0.6);
+  color: #fff;
+}
+
+.btn-deposit:hover::before {
+  transform: translateX(100%);
+}
+
+.instruction-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.instruction-list li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 16px;
+  color: #e2e8f0;
+  font-size: 15px;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+.instruction-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 10px;
+  height: 10px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(14, 165, 233, 0.4);
+}
+
+.filter-dropdown {
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
+  border: 2px solid rgba(14, 165, 233, 0.3);
+  border-radius: 12px;
+  padding: 12px 18px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+.filter-dropdown:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+  outline: none;
+}
+
+.filter-dropdown option {
+  background-color: #1e293b;
+  color: #ffffff;
+}
+
+.qr-placeholder {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
+  border: 2px dashed rgba(14, 165, 233, 0.3);
+  border-radius: 12px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qr-placeholder i {
+  font-size: 60px;
+  color: rgba(14, 165, 233, 0.3);
+}
+
+.text-white {
+  color: #fff;
+}
+
+.text-gray {
+  color: #94a3b8;
+}
+
+.text-primary-custom {
+  color: #0ea5e9;
+}
+
+@media (max-width: 767.98px) {
+  .dashboard-card {
+    padding: 20px;
+  }
+  
+  .payment-card {
+    padding: 16px 18px;
+  }
+  
+  .payment-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 20px;
+    margin-right: 12px;
+  }
+  
+  .amount-input {
+    padding: 16px 20px;
+    font-size: 16px;
+  }
+  
+  .btn-deposit {
+    padding: 16px 28px;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .dashboard-card {
+    padding: 18px;
+  }
+  
+  .payment-card {
+    padding: 14px 16px;
+  }
+  
+  .payment-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+    margin-right: 10px;
+  }
+  
+  .amount-input {
+    padding: 14px 18px;
+    font-size: 15px;
+  }
+  
+  .btn-deposit {
+    padding: 14px 24px;
+    font-size: 15px;
+  }
+}

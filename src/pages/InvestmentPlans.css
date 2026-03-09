@@ -1,0 +1,220 @@
+/* Investment Plans styles */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.dashboard-card {
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.85) 0%, rgba(15, 23, 42, 0.95) 100%);
+  border: 1px solid rgba(14, 165, 233, 0.25);
+  border-radius: 20px;
+  padding: 28px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.plan-card {
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
+  border: 2px solid rgba(14, 165, 233, 0.2);
+  border-radius: 24px;
+  padding: 30px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.plan-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+  animation: shimmer 2s infinite;
+}
+
+.plan-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(14, 165, 233, 0.3);
+  border-color: rgba(14, 165, 233, 0.4);
+}
+
+.plan-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 20px;
+  background: linear-gradient(145deg, rgba(14, 165, 233, 0.2), rgba(139, 92, 246, 0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: var(--primary);
+  border: 2px solid rgba(14, 165, 233, 0.3);
+  box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.plan-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(14, 165, 233, 0.2), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.plan-card:hover .plan-icon {
+  transform: scale(1.1) rotate(10deg);
+  box-shadow: 0 12px 30px rgba(14, 165, 233, 0.5);
+  border-color: var(--primary);
+}
+
+.plan-card:hover .plan-icon::before {
+  transform: translateX(100%);
+}
+
+.text-success-custom {
+  color: #22c55e;
+}
+
+.btn-start {
+  background: linear-gradient(90deg, var(--primary), var(--secondary)) !important;
+  border: none;
+  color: #fff;
+  padding: 18px 36px;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 17px;
+  width: 100%;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.5px;
+  box-shadow: 0 8px 25px rgba(14, 165, 233, 0.4);
+  margin-bottom: 20px;
+}
+
+.btn-start::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s;
+}
+
+.btn-start:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(14, 165, 233, 0.6);
+  color: #fff;
+}
+
+.btn-start:hover::before {
+  left: 100%;
+}
+
+.btn-start:active {
+  transform: translateY(-2px);
+}
+
+.plan-divider {
+  width: 2px;
+  height: 60px;
+  background: linear-gradient(180deg, var(--primary), var(--secondary));
+  margin: 0 25px;
+  border-radius: 1px;
+  box-shadow: 0 0 10px rgba(14, 165, 233, 0.3);
+}
+
+.text-white {
+  color: #fff;
+}
+
+.text-gray {
+  color: #94a3b8;
+}
+
+@media (max-width: 767.98px) {
+  .plan-card {
+    padding: 24px;
+  }
+  
+  .plan-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+  
+  .plan-divider {
+    height: 40px;
+  }
+  
+  .btn-start {
+    padding: 16px 32px;
+    font-size: 16px;
+  }
+  
+  .d-flex.justify-content-end {
+    justify-content: center !important;
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 575.98px) {
+ .plan-card {
+    width: calc(100% + 60px);   /* expands horizontally beyond container */
+    max-width: none;            /* allows full expansion */
+    margin-left: -30px;         /* shifts left to center visually */
+    margin-right: -20px;        /* optional: shift right too */
+    padding: 20px;              /* keeps inner spacing */
+    box-sizing: border-box;     /* ensures padding included in width */
+  }  
+  .plan-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 22px;
+    margin-right: 12px;
+  }
+  
+  .plan-divider {
+    height: 35px;
+    margin: 0 15px;
+  }
+  
+  .btn-start {
+    padding: 16px 30px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 25px;
+  }
+  
+  .d-flex.justify-content-end {
+    justify-content: center !important;
+    margin-top: 15px;
+  }
+}
